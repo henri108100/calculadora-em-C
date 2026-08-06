@@ -45,7 +45,7 @@ void calcular(int opcao){
             break;
         case 3:
             if (b == 0){
-                printf("erro: nao e possivel dividir por 0");
+                printf("erro: nao e possivel dividir por 0\n");
                 return; //encerra a função antes do fim
             }
             resultado = a / b;
