@@ -14,10 +14,12 @@ void limpar_tela(void) {
 int mostrar_opcoes(){ 
 //mostra as opções e retorna o que o usuario digitar
     printf("selecione uma das opcoes: \n");
+    printf("0. sair\n");
     printf("1. adicao\n");
     printf("2. multiplicacao\n");
     printf("3. divisao\n");
-    printf("4. exponenciacao\n\n");
+    printf("4. exponenciacao\n");
+    printf("5. radiciacao\n\n");
 
     int opcao;
     scanf("%d", &opcao);
@@ -53,6 +55,9 @@ void calcular(int opcao){
         case 4:
             resultado = pow(a, b);
             break;
+        case 5:
+            resultado = pow(b, 1.0 / a);
+            break;
     }
     printf("resultado: %.2f\n\n", resultado);
 }
@@ -63,7 +68,11 @@ int main() {
         limpar_tela();
         
         int opcao = mostrar_opcoes();
-        if (opcao > 0 && opcao <= 4){
+        if (opcao == 0){ //opcao de sair
+            return 0; //encerra o programa
+        }
+
+        if (opcao > 0 && opcao <= 5){ //operações matemáticas
             calcular(opcao);
         }else{
             printf("opcao invalida\n");
