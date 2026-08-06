@@ -1,12 +1,14 @@
-#include <stdio.h>
-#include <math.h>
+#include <stdio.h> //usado para printf() e scanf()
+#include <stdlib.h> //usado para system("cls") e system("clear")
+#include <math.h> //usado para pow()
 
-void limpar_tela() { 
-//limpa o termimal usando sequências de escape ANSI
-//OBS: versões antigas do CMD do Windows não suportam ANSI por padrão
-    printf("\033[H\033[J"); //esse conjunto de sequências de escape ANSI (comandos que o terminal interpreta) consegue limpar o terminal
-    fflush(stdout); //garante que a tela vai limpar na mesma hora  
-}
+void limpar_tela(void) {
+#ifdef _WIN32  
+    system("cls"); //WINDOWS
+#else
+    system("clear"); //LINUX ETC
+#endif
+}   
 
 int mostrar_opcoes(){ 
 //mostra as opções e retorna o que o usuario digitar
