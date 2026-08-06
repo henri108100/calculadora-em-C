@@ -3,11 +3,12 @@
 #include <math.h> //usado para pow()
 
 void limpar_tela(void) {
-#ifdef _WIN32  
-    system("cls"); //WINDOWS
-#else
-    system("clear"); //LINUX ETC
-#endif
+//limpa a tela dependendo do sistema operacional
+    #ifdef _WIN32  
+        system("cls"); //WINDOWS
+    #else
+        system("clear"); //LINUX ETC
+    #endif
 }   
 
 int mostrar_opcoes(){ 
